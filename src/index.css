@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Parchment */
+  --color-sand-50: #fffcf7;
+  --color-sand-100: #faf4ea;
+  --color-sand-200: #f2e7d6;
+  --color-sand-300: #e5d3b8;
+
+  /* Terracotta */
+  --color-clay-100: #fbeade;
+  --color-clay-200: #f5cfb8;
+  --color-clay-300: #eeab86;
+  --color-clay-400: #e0865a;
+  --color-clay-500: #cd6534;
+  --color-clay-600: #ad4b20;
+  --color-clay-700: #8a3918;
+
+  /* Ember accent */
+  --color-ember-300: #f7cf7e;
+  --color-ember-400: #f0b043;
+  --color-ember-500: #dd941b;
+
+  /* Warm neutrals */
+  --color-bark-200: #ddd0c2;
+  --color-bark-300: #c7b4a1;
+  --color-bark-400: #a8917c;
+  --color-bark-500: #8a7361;
+  --color-bark-600: #6d594a;
+  --color-bark-700: #56443a;
+  --color-bark-800: #3d2f28;
+  --color-bark-900: #2a201b;
+
+  /* Sage */
+  --color-sage-100: #e7eddf;
+  --color-sage-300: #a9bd99;
+  --color-sage-500: #6f8a5c;
+  --color-sage-600: #557045;
+
+  --shadow-soft: 0 1px 2px rgb(42 32 27 / 0.04), 0 10px 30px -14px rgb(42 32 27 / 0.2);
+  --shadow-lift: 0 2px 6px rgb(42 32 27 / 0.06), 0 24px 48px -22px rgb(42 32 27 / 0.32);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-sand-50);
+    color: var(--color-bark-800);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--color-bark-900);
+  }
+
+  ::selection {
+    background-color: var(--color-clay-200);
+    color: var(--color-bark-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-clay-500);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Scroll-reveal. Gated behind a class that main.jsx adds, so content is
+   never hidden when JavaScript is unavailable. */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
