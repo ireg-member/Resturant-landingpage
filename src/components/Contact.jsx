@@ -34,16 +34,14 @@ export default function Contact() {
             {details.map((item) => {
               const content = (
                 <>
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-clay-100 text-clay-600">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
                     <Icon name={item.icon} className="h-5 w-5" />
                   </span>
                   <span className="flex min-w-0 flex-col">
-                    <span className="text-xs font-semibold tracking-[0.14em] text-bark-500 uppercase">
+                    <span className="text-xs font-semibold tracking-[0.14em] text-ink-faint uppercase">
                       {item.label}
                     </span>
-                    <span className="mt-1 text-sm leading-relaxed break-words text-bark-800">
-                      {item.value}
-                    </span>
+                    <span className="mt-1 text-sm leading-relaxed break-words text-ink">{item.value}</span>
                   </span>
                 </>
               )
@@ -54,12 +52,12 @@ export default function Contact() {
                     <a
                       href={item.href}
                       {...(item.external ? { target: '_blank', rel: 'noreferrer' } : {})}
-                      className="flex items-start gap-4 rounded-2xl border border-sand-200 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:border-clay-200 hover:shadow-lift"
+                      className="flex items-start gap-4 rounded-2xl border border-line bg-card p-5 shadow-soft transition hover:-translate-y-0.5 hover:border-accent hover:shadow-lift"
                     >
                       {content}
                     </a>
                   ) : (
-                    <div className="flex items-start gap-4 rounded-2xl border border-sand-200 bg-white p-5 shadow-soft">
+                    <div className="flex items-start gap-4 rounded-2xl border border-line bg-card p-5 shadow-soft">
                       {content}
                     </div>
                   )}
@@ -67,13 +65,12 @@ export default function Contact() {
               )
             })}
 
-            <li className="mt-1 rounded-2xl bg-clay-100/70 p-5">
-              <p className="text-sm leading-relaxed text-bark-700">
-                <span className="font-semibold text-clay-700">Groups of 7+?</span>{' '}
-                Email{' '}
+            <li className="mt-1 rounded-2xl bg-accent-soft p-5">
+              <p className="text-sm leading-relaxed text-ink-soft">
+                <span className="font-semibold text-accent">Groups of 7+?</span> Email{' '}
                 <a
                   href={`mailto:${site.reservationEmail}`}
-                  className="font-semibold underline decoration-clay-300 underline-offset-4 hover:decoration-clay-600"
+                  className="font-semibold underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
                 >
                   {site.reservationEmail}
                 </a>{' '}
@@ -84,7 +81,7 @@ export default function Contact() {
 
           <div
             ref={mapRef}
-            className="reveal relative min-h-[22rem] overflow-hidden rounded-3xl border border-sand-200 shadow-soft"
+            className="reveal relative min-h-[22rem] overflow-hidden rounded-3xl border border-line bg-card-alt shadow-soft"
             style={{ transitionDelay: '120ms' }}
           >
             <iframe
@@ -92,13 +89,13 @@ export default function Contact() {
               src={mapEmbedUrl}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 h-full w-full"
+              className="absolute inset-0 h-full w-full dark:invert dark:hue-rotate-180"
             />
             <a
               href={directionsUrl}
               target="_blank"
               rel="noreferrer"
-              className="absolute right-4 bottom-4 inline-flex items-center gap-2 rounded-full bg-bark-900 px-4 py-2.5 text-xs font-semibold text-sand-50 shadow-lift transition hover:bg-bark-800"
+              className="absolute right-4 bottom-4 inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-xs font-semibold text-page shadow-lift transition hover:bg-ink-soft"
             >
               Get directions
               <Icon name="arrowUpRight" className="h-3.5 w-3.5" />

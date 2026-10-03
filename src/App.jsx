@@ -11,7 +11,7 @@ export default function App() {
     <div className="flex min-h-screen flex-col overflow-x-clip">
       <a
         href="#main"
-        className="sr-only rounded-full bg-bark-900 px-4 py-2 text-sm font-semibold text-sand-50 focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60]"
+        className="sr-only rounded-full bg-ink px-4 py-2 text-sm font-semibold text-page focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60]"
       >
         Skip to content
       </a>

@@ -151,7 +151,6 @@ export const heroSecondaryImage = img('1473093295043-cdd812d0e601', 600, 600)
 
 export const aboutImages = {
   main: img('1414235077428-338989a2e8c0', 1000, 1200),
-  detail: img('1509440159596-0249088772ff', 600, 600),
 }
 
 export const highlights = [

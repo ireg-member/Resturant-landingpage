@@ -1,22 +1,17 @@
 import { useReveal } from '../lib/useReveal'
 
-const alignments = {
-  left: 'text-left items-start',
-  center: 'text-center items-center mx-auto',
-}
-
 const tones = {
   light: {
-    eyebrow: 'text-clay-600',
-    rule: 'bg-clay-300',
-    title: 'text-bark-900',
-    body: 'text-bark-600',
+    eyebrow: 'text-accent',
+    rule: 'bg-accent',
+    title: 'text-ink',
+    body: 'text-ink-muted',
   },
   dark: {
-    eyebrow: 'text-clay-300',
-    rule: 'bg-clay-400',
-    title: 'text-sand-50',
-    body: 'text-sand-300',
+    eyebrow: 'text-accent-bright',
+    rule: 'bg-accent-bright',
+    title: 'text-panel-ink',
+    body: 'text-panel-muted',
   },
 }
 
@@ -30,11 +25,19 @@ export default function SectionHeading({
 }) {
   const ref = useReveal()
   const t = tones[tone] ?? tones.light
+  const centered = align === 'center'
 
   return (
-    <div ref={ref} className={`reveal flex max-w-2xl flex-col gap-4 ${alignments[align]} ${className}`}>
+    <div
+      ref={ref}
+      className={`reveal flex max-w-2xl flex-col gap-4 ${
+        centered ? 'mx-auto items-center text-center' : 'items-start text-left'
+      } ${className}`}
+    >
       {eyebrow && (
-        <span className={`inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase ${t.eyebrow}`}>
+        <span
+          className={`inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase ${t.eyebrow}`}
+        >
           <span aria-hidden="true" className={`h-px w-6 ${t.rule}`} />
           {eyebrow}
         </span>
@@ -43,7 +46,7 @@ export default function SectionHeading({
         {title}
       </h2>
       {description && (
-        <p className={`text-base leading-relaxed sm:text-lg ${t.body}`}>{description}</p>
+        <p className={`text-base leading-relaxed text-pretty sm:text-lg ${t.body}`}>{description}</p>
       )}
     </div>
   )
