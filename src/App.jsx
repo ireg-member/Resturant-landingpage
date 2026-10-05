@@ -7,6 +7,7 @@ import Login from './components/Login'
 import MenuSection from './components/MenuSection'
 import Navbar from './components/Navbar'
 import SignUp from './components/SignUp'
+import WhatsAppButton from './components/WhatsAppButton'
 import { Router, useRouter } from './lib/router'
 
 function Landing() {
@@ -52,6 +53,7 @@ export default function App() {
   return (
     <Router>
       <Pages />
+      <WhatsAppButton />
     </Router>
   )
 }
