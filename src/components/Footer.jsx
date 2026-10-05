@@ -1,8 +1,14 @@
 import { navLinks, openingHours, site } from '../data/site'
 import { formatRange } from '../lib/hours'
+import { Link } from '../lib/router'
 import Logo from './Logo'
 
 const today = new Date().getDay()
+
+const memberLinks = [
+  { label: 'Sign in', to: '/login' },
+  { label: 'Create an account', to: '/signup' },
+]
 
 export default function Footer() {
   return (
@@ -43,6 +49,15 @@ export default function Footer() {
                   <a href={link.href} className="text-sm text-panel-ink transition hover:text-accent-bright">
                     {link.label}
                   </a>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-6 flex flex-col gap-3 border-t border-panel-line pt-6">
+              {memberLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="text-sm text-panel-ink transition hover:text-accent-bright">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>

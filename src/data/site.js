@@ -149,6 +149,19 @@ export const heroDish = {
 
 export const heroSecondaryImage = img('1473093295043-cdd812d0e601', 600, 600)
 
+/** Copy for the split panel that sits beside the login / sign-up forms. */
+export const authPanel = {
+  image: img('1517248135467-4c7edcad34c4', 1200, 1600),
+  alt: 'The warmly lit dining room at Cedar & Salt',
+  title: 'A seat kept for you',
+  copy: 'Members get first pick of the wood oven, their usual table on the quiet Tuesday nights, and a text when the shortlist menu lands.',
+  perks: [
+    'Early access to weekend brunch bookings',
+    'Saved details — allergies, favourite seat, wine',
+    'A slice of something sweet on your birthday',
+  ],
+}
+
 export const aboutImages = {
   main: img('1414235077428-338989a2e8c0', 1000, 1200),
 }
