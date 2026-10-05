@@ -18,6 +18,11 @@ export const site = {
   email: 'hello@cedarandsalt.com',
   emailHref: 'mailto:hello@cedarandsalt.com',
   reservationEmail: 'tables@cedarandsalt.com',
+  whatsapp: {
+    // Digits only, country code first — wa.me needs no `+`, spaces or dashes.
+    number: '+15035550148',
+    message: "Hi Cedar & Salt — I'd like to ask about a table.",
+  },
   address: {
     line1: '1428 SE Division Street',
     line2: 'Portland, Oregon 97202',
@@ -195,3 +200,6 @@ export const hoursNote = 'Kitchen closes 45 minutes before the room does. Closed
 export const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${site.coords.lon - 0.014}%2C${site.coords.lat - 0.008}%2C${site.coords.lon + 0.014}%2C${site.coords.lat + 0.008}&layer=mapnik&marker=${site.coords.lat}%2C${site.coords.lon}`
 
 export const directionsUrl = `https://www.openstreetmap.org/?mlat=${site.coords.lat}&mlon=${site.coords.lon}#map=16/${site.coords.lat}/${site.coords.lon}`
+
+/** Opens WhatsApp with a pre-filled message, so the first message is never blank. */
+export const whatsappUrl = `https://wa.me/${site.whatsapp.number.replace(/\D/g, '')}?text=${encodeURIComponent(site.whatsapp.message)}`
