@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { navLinks, site } from '../data/site'
 import { getOpenStatus } from '../lib/hours'
+import { Link } from '../lib/router'
 import Button from './Button'
 import Icon from './Icon'
 import Logo from './Logo'
@@ -70,7 +71,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <span
-            className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ${
+            className={`hidden items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold xl:inline-flex ${
               status.isOpen ? 'bg-sage-soft text-sage' : 'bg-page-soft text-ink-muted'
             }`}
           >
@@ -80,6 +81,12 @@ export default function Navbar() {
             />
             {status.headline}
           </span>
+          <Link
+            to="/login"
+            className="rounded-full px-3 py-2.5 text-sm font-semibold text-ink-soft transition hover:bg-page-soft hover:text-accent"
+          >
+            Sign in
+          </Link>
           <Button href="#contact" className="px-5 py-2.5">
             Book a table
           </Button>
@@ -131,6 +138,20 @@ export default function Navbar() {
               Book a table
               <Icon name="arrowRight" className="h-4 w-4" />
             </Button>
+            <div className="flex gap-3">
+              <Button as={Link} to="/login" onClick={() => setOpen(false)} className="flex-1">
+                Sign in
+              </Button>
+              <Button
+                as={Link}
+                to="/signup"
+                variant="outline"
+                onClick={() => setOpen(false)}
+                className="flex-1"
+              >
+                Join us
+              </Button>
+            </div>
             <a
               href={`tel:${site.phone.replace(/[^+\d]/g, '')}`}
               className="text-center text-sm font-medium text-ink-muted hover:text-accent"
