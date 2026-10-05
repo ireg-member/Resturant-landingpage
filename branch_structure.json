@@ -1,0 +1,21 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "feature-login",
+    "feature-whatsapp-button",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "feature-login": "main",
+    "feature-whatsapp-button": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "feature-login",
+    "feature-whatsapp-button",
+    "origin"
+  ]
+}
